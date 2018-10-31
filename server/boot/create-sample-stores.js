@@ -21,7 +21,9 @@ function createStores(app) {
     name: 'Pies Galore',
     city: 'Lake Tahoe',
   }];
-  app.models.store.create(sampleStores)
+  app.models.store
+    .destroyAll()
+    .then(() => app.models.store.create(sampleStores))
     .then(logStores)
     .catch(console.error);
 }
